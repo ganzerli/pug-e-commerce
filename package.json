@@ -11,7 +11,9 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.4",
-    "pug": "^2.0.3"
+    "mysql2": "^1.6.4",
+    "pug": "^2.0.3",
+    "sequelize": "^4.42.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"

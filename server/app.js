@@ -5,6 +5,14 @@ const routes = require("./routes");
 // create the server
 const app = express();
 
+//import the database connection
+const db = require("../config/database");
+
+// ttest the connection
+db.authenticate()
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
+
 //enable Pug
 app.set("view engine", "pug");
 
@@ -16,11 +24,11 @@ app.use(express.static("public"));
 
 // passing variables to the view
 app.use((req, res, next) => {
-  const date = new Date().getFullYear();
-  res.locals.date = date;
+  res.locals.date = new Date().getFullYear();
   return next();
 });
 
+//
 //listen for other routes
 app.use("/", routes());
 

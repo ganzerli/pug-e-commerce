@@ -16,5 +16,12 @@ module.exports = function() {
     });
   });
 
+  // get the store
+  router.get("/store", (req, res) => {
+    res.render("store", {
+      pageTitle: "store"
+    });
+  });
+
   return router;
 };
