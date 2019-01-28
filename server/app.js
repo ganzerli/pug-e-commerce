@@ -6,12 +6,10 @@ const routes = require("./routes");
 const app = express();
 
 //import the database connection
-const db = require("../config/database");
+const db = require("./config/database");
 
-// ttest the connection
-db.authenticate()
-  .then(res => console.log(res))
-  .catch(err => console.log(err));
+// test the connection
+//db.authenticate().then(res => console.log(res)).catch(err => console.log(err));
 
 //enable Pug
 app.set("view engine", "pug");
