@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /*
   const form = document.querySelector("[js-id=form-testimonials]");
-
   if (form) {
     form.addEventListener("submit", e => {
       e.preventDefault();
@@ -13,9 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       addTestimonial(name, text);
     });
-  }
+  } */
 });
 
-function addTestimonials(name, text) {
-  document.querySelector();
-}
+function addTestimonial(name, text) {}

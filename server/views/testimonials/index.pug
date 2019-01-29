@@ -4,15 +4,15 @@ extends ../layout/index
 block content    
     h1.view-title #{pageTitle}
 
-    h2 add a testimonial
+    h2 leave a comment about the shop
 
-    form.form(js-id="form-testimonials")
+    form.form(js-id="form-testimonials", action="/testimonials", method="post")
         .form-group
             label.form-input-label(for="name") Full Name
-            input.form-input-name(type="text", id="name")
+            input.form-input-name(type="text", id="name" name="name")
         .form-group
             label(for="textarea-testimonials" calss="form-input-label") Your opinion 
-            textarea(calss="form-textarea" id="textarea-testimonials") 
+            textarea.form-textarea(id="textarea-testimonials" name="text") 
         .form-group
             input.btn-form-submit(type="submit", action=null)
 
@@ -23,7 +23,6 @@ block content
         span testimonial
         span testimonial
         span testimonial
-
 
     each item in items
         h2=item.title

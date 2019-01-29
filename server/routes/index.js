@@ -42,7 +42,7 @@ module.exports = function() {
       .catch(err => console.log(err));
   });
 
-  //testimonials
+  // testimonials view
   router.get("/testimonials", (req, res) => {
     Items.findAll({
       limit: 6,
@@ -55,6 +55,16 @@ module.exports = function() {
         items: allItems,
         pageTitle: "Testimonials"
       });
+    });
+  });
+
+  // add testimonials
+  router.post("/testimonials", (req, res) => {
+    const { name, text } = req.body;
+    // console.log(name, text);
+    res.render("testimonials", {
+      items: [],
+      pageTitle: "Testimonials"
     });
   });
 

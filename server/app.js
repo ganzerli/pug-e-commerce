@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const routes = require("./routes");
+const bodyParser = require("body-parser");
 
 // create the server
 const app = express();
@@ -25,7 +26,8 @@ app.use((req, res, next) => {
   return next();
 });
 
-//
+//enable body parser for form submit action
+app.use(bodyParser.urlencoded({ extended: true }));
 //listen for router from this path
 app.use("/", routes());
 
