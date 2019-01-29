@@ -1,3 +1,16 @@
 extends ../layout/index   
 block content
-    h2 Store
+    h1.view-title #{pageTitle}
+    h3 here you can find all articles
+
+    .results-container
+        each item in items
+            .result-file
+                img(src="./img/${item.img}")
+                h4=item.title
+                p=item.body
+                span=item.selected
+                span=item.prize
+                p=item.updatedAt
+                p=item.id
+                a.btn-goto-item(href=`/itemDetails/${item.id}`) Details
