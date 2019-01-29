@@ -32,16 +32,28 @@ module.exports = function() {
   // Details single item
   router.get("/itemDetails/:id", (req, res) => {
     // FITN ONE limiting the find all to 1
+    Items.findByPk(req.params.id)
+      .then(obj => {
+        res.render("itemDetails", {
+          item: obj,
+          pageTitle: "Details"
+        });
+      })
+      .catch(err => console.log(err));
+  });
+
+  //testimonials
+  router.get("/testimonials", (req, res) => {
     Items.findAll({
-      limit: 1,
+      limit: 6,
       where: {
-        id: req.params.id
+        // any
       },
       order: [["createdAt", "DESC"]]
     }).then(allItems => {
-      res.render("itemDetails", {
-        item: allItems[0],
-        pageTitle: "Details"
+      res.render("testimonials", {
+        items: allItems,
+        pageTitle: "Testimonials"
       });
     });
   });

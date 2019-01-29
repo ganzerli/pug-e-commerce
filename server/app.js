@@ -6,10 +6,12 @@ const routes = require("./routes");
 const app = express();
 
 //import the database connection
-const db = require("./config/database");
-
-// test the connection
+//const db = require("./config/database");
+//test the connection
 //db.authenticate().then(res => console.log(res)).catch(err => console.log(err));
+
+// accessing static assets
+app.use(express.static("public"));
 
 //enable Pug
 app.set("view engine", "pug");
@@ -17,18 +19,15 @@ app.set("view engine", "pug");
 //add the path for the folder views
 app.set("views", path.join(__dirname, "./views"));
 
-// accessing static assets
-app.use(express.static("public"));
-
-// passing variables to the view
+// passing variables to the view, available for all routes in "views"
 app.use((req, res, next) => {
   res.locals.date = new Date().getFullYear();
   return next();
 });
 
 //
-//listen for other routes
+//listen for router from this path
 app.use("/", routes());
 
-//
+// exporting for server.js
 module.exports = app;

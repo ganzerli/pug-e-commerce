@@ -1,0 +1,29 @@
+
+extends ../layout/index
+
+block content    
+    h1.view-title #{pageTitle}
+
+    h2 add a testimonial
+
+    form.form(js-id="form-testimonials")
+        .form-group
+            label.form-input-label(for="name") Full Name
+            input.form-input-name(type="text", id="name")
+        .form-group
+            label(for="textarea-testimonials" calss="form-input-label") Your opinion 
+            textarea(calss="form-textarea" id="textarea-testimonials") 
+        .form-group
+            input.btn-form-submit(type="submit", action=null)
+
+    .result-testimonials
+        span testimonial
+        span testimonial
+        span testimonial
+        span testimonial
+        span testimonial
+        span testimonial
+
+
+    each item in items
+        h2=item.title
