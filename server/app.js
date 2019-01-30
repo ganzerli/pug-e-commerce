@@ -7,9 +7,11 @@ const bodyParser = require("body-parser");
 const app = express();
 
 //import the database connection
-//const db = require("./config/database");
+const db = require("./config/database");
 //test the connection
-//db.authenticate().then(res => console.log(res)).catch(err => console.log(err));
+db.authenticate()
+  .then(console.log("SQL DB CONNECTED"))
+  .catch(err => console.log(err));
 
 // accessing static assets
 app.use(express.static("public"));

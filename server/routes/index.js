@@ -68,19 +68,31 @@ module.exports = function() {
     });
   });
 
-  // add records manually form here hardcoded
+  // add records manually from dev view
   router.get("/add", (req, res) => {
+    res.render("dev/addItem", {
+      pageTitle: "addItem"
+    });
+  });
+  // post from dev view
+  router.post("/add", (req, res) => {
+    const { title, body, special, prize, img } = req.body;
+    console.log(title, body, special, prize, img);
+
     Items.create({
-      title: "X box",
-      body: "I have an X box collection version to give away..",
-      special: "x box collection",
+      title,
+      body,
+      special,
       updatedAt: new Date().toLocaleString(),
       createdAt: new Date().toLocaleString(),
       selected: false,
-      prize: 300,
-      img: "veryImage7.png"
+      prize,
+      img
     }).then(data => {
-      console.log(data);
+      res.render("dev/addItem", {
+        pageTitle: "addItem",
+        data
+      });
     });
   });
 
