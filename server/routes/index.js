@@ -48,7 +48,7 @@ module.exports = function() {
   // testimonials view
   router.get("/testimonials", (req, res) => {
     Testimonials.findAll({
-      limit: 6,
+      limit: 9,
       where: {
         // any
       },
@@ -56,7 +56,7 @@ module.exports = function() {
     }).then(testimonials => {
       res.render("testimonials", {
         // created at "ASC" does not work
-        testimonials: testimonials.reverse(),
+        testimonials: testimonials,
         pageTitle: "Testimonials"
       });
     });
@@ -74,6 +74,7 @@ module.exports = function() {
     if (text === "" || text === " ") {
       errors.text = "Text is Rquired!";
     }
+
     console.log(name, text);
 
     Testimonials.create({
@@ -84,7 +85,7 @@ module.exports = function() {
     }).then(data => {
       // render the page with 6 items
       Testimonials.findAll({
-        limit: 6,
+        limit: 9,
         where: {
           // any
         },
@@ -93,7 +94,7 @@ module.exports = function() {
         res.render("testimonials", {
           errors,
           // created at "ASC" does not work
-          testimonials: testimonials.reverse(),
+          testimonials: testimonials,
           pageTitle: "Testimonials"
         });
       });

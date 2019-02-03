@@ -19,9 +19,8 @@ block content
         .form-group
             input.btn-form-submit(type="submit", action=null)
 
-
-
     if(testimonials)
         each record in testimonials
             p=record.name
             p=record.text
+            p=record.createdAt
