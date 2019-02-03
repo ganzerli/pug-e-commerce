@@ -5,6 +5,9 @@ block content
     h1.view-title #{pageTitle}
 
     h2 leave a comment about the shop
+    if(errors)
+        p=errors.name
+        p=errors.text
 
     form.form(js-id="form-testimonials", action="/testimonials", method="post")
         .form-group
@@ -16,13 +19,9 @@ block content
         .form-group
             input.btn-form-submit(type="submit", action=null)
 
-    .result-testimonials
-        span testimonial
-        span testimonial
-        span testimonial
-        span testimonial
-        span testimonial
-        span testimonial
 
-    each item in items
-        h2=item.title
+
+    if(testimonials)
+        each record in testimonials
+            p=record.name
+            p=record.text

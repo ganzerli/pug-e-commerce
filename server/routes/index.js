@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
+
 const Items = require("../models/Items");
+const Testimonials = require("../models/Testimonials");
 
 module.exports = function() {
   // homepage url
@@ -42,32 +44,63 @@ module.exports = function() {
       .catch(err => console.log(err));
   });
 
+  // testimnonials GET
   // testimonials view
   router.get("/testimonials", (req, res) => {
-    Items.findAll({
+    Testimonials.findAll({
       limit: 6,
       where: {
         // any
       },
       order: [["createdAt", "DESC"]]
-    }).then(allItems => {
+    }).then(testimonials => {
       res.render("testimonials", {
-        items: allItems,
+        // created at "ASC" does not work
+        testimonials: testimonials.reverse(),
         pageTitle: "Testimonials"
       });
     });
   });
 
+  // testimonials POST
   // add testimonials
   router.post("/testimonials", (req, res) => {
     const { name, text } = req.body;
-    // console.log(name, text);
-    res.render("testimonials", {
-      items: [],
-      pageTitle: "Testimonials"
+    const errors = {};
+
+    if (name === "" || name === " ") {
+      errors.name = "Name is Required";
+    }
+    if (text === "" || text === " ") {
+      errors.text = "Text is Rquired!";
+    }
+    console.log(name, text);
+
+    Testimonials.create({
+      name,
+      text,
+      updatedAt: new Date().toLocaleString(),
+      createdAt: new Date().toLocaleString()
+    }).then(data => {
+      // render the page with 6 items
+      Testimonials.findAll({
+        limit: 6,
+        where: {
+          // any
+        },
+        order: [["createdAt", "DESC"]]
+      }).then(testimonials => {
+        res.render("testimonials", {
+          errors,
+          // created at "ASC" does not work
+          testimonials: testimonials.reverse(),
+          pageTitle: "Testimonials"
+        });
+      });
     });
   });
 
+  //        !!!       DEV  ROUTES     !!!       DEV  ROUTES
   // add records manually from dev view
   router.get("/add", (req, res) => {
     res.render("dev/addItem", {
@@ -91,7 +124,7 @@ module.exports = function() {
     }).then(data => {
       res.render("dev/addItem", {
         pageTitle: "addItem",
-        data
+        data: data.dataValues
       });
     });
   });
