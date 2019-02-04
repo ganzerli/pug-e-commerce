@@ -18,13 +18,13 @@ app.use(express.static("public"));
 
 //enable Pug
 app.set("view engine", "pug");
-
 //add the path for the folder views
 app.set("views", path.join(__dirname, "./views"));
 
 // passing variables to the view, available for all routes in "views"
 app.use((req, res, next) => {
   res.locals.date = new Date().getFullYear();
+  res.locals.currentPage = req.path; // returns /view
   return next();
 });
 

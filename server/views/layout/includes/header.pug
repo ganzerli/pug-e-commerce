@@ -1,13 +1,13 @@
 header
     .logo-box
-        .logo Here the logo
+        .logo Here the logo, #{currentPage}
         nav.header-nav
             ul.header-list
                 li.header-list-item 
-                    a.header-list-link(href="/") Home
+                    a.header-list-link(class=(currentPage === "/" ? "list-link-active" : "") href="/") Home
                 li.header-list-item 
-                    a.header-list-link(href="/about") About
+                    a.header-list-link(class=(currentPage === "/about" ? "list-link-active" : "") href="/about") About
                 li.header-list-item 
-                    a.header-list-link(href="/store") Store
+                    a.header-list-link(class=(currentPage === "/store" ? "list-link-active" : "") href="/store") Store
                 li.header-list-item 
-                    a.header-list-link(href="/testimonials") Testimonials
+                    a.header-list-link(class=(currentPage === "/testimonials" ? "list-link-active" : "") href="/testimonials") Testimonials
