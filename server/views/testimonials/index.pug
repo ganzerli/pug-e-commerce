@@ -5,6 +5,7 @@ block content
     h1.view-title #{pageTitle}
 
     h2 leave a comment about the shop
+
     if(errors)
         p=errors.name
         p=errors.text
@@ -17,10 +18,15 @@ block content
             label(for="textarea-testimonials" calss="form-input-label") Your opinion 
             textarea.form-textarea(id="textarea-testimonials" name="text") 
         .form-group
-            input.btn-form-submit(type="submit", action=null)
+            input.btn-form-submit(type="submit")
 
     if(testimonials)
         each record in testimonials
             p=record.name
             p=record.text
-            p=record.createdAt
+
+    if(items)
+        each item in items
+            img.img-item(src=`img/${item.img}`) 
+            p the itm title is #{item.title}
+            p=item.body

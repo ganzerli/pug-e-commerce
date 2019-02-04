@@ -3,18 +3,18 @@ block content
     h1.view-title #{pageTitle}
     h3 here you can find all articles
 
-
-    form.form(js-id="form-add", action="/add", method="post")
-    .form-group
-        label.form-input-label(for="title") title or description
-        input.form-input-name(type="text", id="title" name="title")
-    .form-group
-        label.form-input-label(for="body") from prize
-        input.form-input-name(type="text", id="body" name="body")
-    .form-group
-        label.form-input-label(for="body") to prize
-        input.form-input-name(type="text", id="body" name="body")
-
+    form.form(js-id="form-search", action="/search", method="post")
+        .form-group
+            label.form-input-label(for="text") title or description
+            input.form-input-name(type="text", id="text", name="text")
+        .form-group
+            label.form-input-label(for="body") from prize
+            input.form-input-name(type="text", id="body", name="fromPrize")
+        .form-group
+            label.form-input-label(for="body") to prize
+            input.form-input-name(type="text", id="body", name="toPrize")
+        .form.group
+            input.btn-form-submit(type="submit")
 
 
     .results-container

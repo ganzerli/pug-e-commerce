@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
-
+const sequelize = require("sequelize");
 const Items = require("../models/Items");
 const Testimonials = require("../models/Testimonials");
+
+const op = sequelize.Op;
 
 module.exports = function() {
   // homepage url
@@ -31,6 +33,31 @@ module.exports = function() {
     });
   });
 
+  //post to stre for the search
+  router.post("/search", (req, res) => {
+    // getting the datra frompost form store
+    const { text, fromPrize, toPrize } = req.body;
+
+    // check which kind to query
+    console.log(text, fromPrize, toPrize);
+
+    // split the search
+
+    Items.findAll({
+      limit: 3,
+      where: {
+        //       [op.gte]: parseInt(fromPrize),
+        //       [op.lte]: parseInt(toPrize)
+      },
+      order: [["createdAt", "DESC"]]
+    }).then(found => {
+      res.render("store", {
+        pageTitle: "store",
+        items: found
+      });
+    });
+  });
+
   // Details single item
   router.get("/itemDetails/:id", (req, res) => {
     // FITN ONE limiting the find all to 1
@@ -47,17 +74,35 @@ module.exports = function() {
   // testimnonials GET
   // testimonials view
   router.get("/testimonials", (req, res) => {
-    Testimonials.findAll({
-      limit: 9,
-      where: {
-        // any
-      },
-      order: [["createdAt", "DESC"]]
-    }).then(testimonials => {
+    //find testimonials and items
+    const promises = [];
+
+    promises.push(
+      Testimonials.findAll({
+        limit: 9,
+        where: {},
+        order: [["createdAt", "DESC"]]
+      })
+    );
+
+    promises.push(
+      Items.findAll({
+        limit: 3,
+        where: {},
+        order: [["createdAt", "DESC"]]
+      })
+    );
+
+    // joining the promises
+    const result = Promise.all(promises);
+
+    //
+    result.then(results => {
       res.render("testimonials", {
         // created at "ASC" does not work
-        testimonials: testimonials,
-        pageTitle: "Testimonials"
+        testimonials: results[0],
+        pageTitle: "Testimonials",
+        items: results[1]
       });
     });
   });
@@ -108,6 +153,7 @@ module.exports = function() {
       pageTitle: "addItem"
     });
   });
+
   // post from dev view
   router.post("/add", (req, res) => {
     const { title, body, special, prize, img } = req.body;
