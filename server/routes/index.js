@@ -13,6 +13,9 @@ const testimonialsControllerPost = require("../controllers/testimonialsControlle
 const testimonialsControllerGet = require("../controllers/testimonialsControllerGet");
 
 const indexController = require("../controllers/indexController");
+const storeController = require("../controllers/storeController");
+
+const itemDetailsController = require("../controllers/itemDetailsController");
 
 // operator for queries to sequelize
 const op = sequelize.Op;
@@ -25,16 +28,7 @@ module.exports = function() {
   router.get("/about", aboutControllerExport.aboutController);
 
   // get the store
-  router.get("/store", (req, res) => {
-    Items.findAll().then(items => {
-      //console.log(items[1].dataValues);
-      // passing the variables from backend to the view
-      res.render("store", {
-        pageTitle: "store",
-        items
-      });
-    });
-  });
+  router.get("/store", storeController.storeController);
 
   //post to stre for the search
   router.post("/search", (req, res) => {
@@ -62,17 +56,7 @@ module.exports = function() {
   });
 
   // Details single item
-  router.get("/itemDetails/:id", (req, res) => {
-    // FITN ONE limiting the find all to 1
-    Items.findByPk(req.params.id)
-      .then(obj => {
-        res.render("itemDetails", {
-          item: obj,
-          pageTitle: "Details"
-        });
-      })
-      .catch(err => console.log(err));
-  });
+  router.get("/itemDetails/:id", itemDetailsController.itemDetailsController);
 
   // testimnonials GET
   // testimonials view
