@@ -1,25 +1,28 @@
 const express = require("express");
 const router = express.Router();
 const sequelize = require("sequelize");
+
+// models import
 const Items = require("../models/Items");
 const Testimonials = require("../models/Testimonials");
 
+//import the controllers
+const aboutControllerExport = require("../controllers/aboutController");
+
+const testimonialsControllerPost = require("../controllers/testimonialsControllerPost");
+const testimonialsControllerGet = require("../controllers/testimonialsControllerGet");
+
+const indexController = require("../controllers/indexController");
+
+// operator for queries to sequelize
 const op = sequelize.Op;
 
 module.exports = function() {
   // homepage url
-  router.get("/", (req, res) => {
-    res.render("index", {
-      pageTitle: "Welcome"
-    });
-  });
+  router.get("/", indexController.indexController);
 
   // about us
-  router.get("/about", (req, res) => {
-    res.render("about", {
-      pageTitle: "About"
-    });
-  });
+  router.get("/about", aboutControllerExport.aboutController);
 
   // get the store
   router.get("/store", (req, res) => {
@@ -73,78 +76,17 @@ module.exports = function() {
 
   // testimnonials GET
   // testimonials view
-  router.get("/testimonials", (req, res) => {
-    //find testimonials and items
-    const promises = [];
-
-    promises.push(
-      Testimonials.findAll({
-        limit: 9,
-        where: {},
-        order: [["createdAt", "DESC"]]
-      })
-    );
-
-    promises.push(
-      Items.findAll({
-        limit: 3,
-        where: {},
-        order: [["createdAt", "DESC"]]
-      })
-    );
-
-    // joining the promises
-    const result = Promise.all(promises);
-
-    //
-    result.then(results => {
-      res.render("testimonials", {
-        // created at "ASC" does not work
-        testimonials: results[0],
-        pageTitle: "Testimonials",
-        items: results[1]
-      });
-    });
-  });
+  router.get(
+    "/testimonials",
+    testimonialsControllerGet.testimonialsControllerGet
+  );
 
   // testimonials POST
   // add testimonials
-  router.post("/testimonials", (req, res) => {
-    const { name, text } = req.body;
-    const errors = {};
-
-    if (name === "" || name === " ") {
-      errors.name = "Name is Required";
-    }
-    if (text === "" || text === " ") {
-      errors.text = "Text is Rquired!";
-    }
-
-    console.log(name, text);
-
-    Testimonials.create({
-      name,
-      text,
-      updatedAt: new Date().toLocaleString(),
-      createdAt: new Date().toLocaleString()
-    }).then(data => {
-      // render the page with 6 items
-      Testimonials.findAll({
-        limit: 9,
-        where: {
-          // any
-        },
-        order: [["createdAt", "DESC"]]
-      }).then(testimonials => {
-        res.render("testimonials", {
-          errors,
-          // created at "ASC" does not work
-          testimonials: testimonials,
-          pageTitle: "Testimonials"
-        });
-      });
-    });
-  });
+  router.post(
+    "/testimonials",
+    testimonialsControllerPost.testimonialsControllerPost
+  );
 
   //        !!!       DEV  ROUTES     !!!       DEV  ROUTES
   // add records manually from dev view
