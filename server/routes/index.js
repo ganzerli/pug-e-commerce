@@ -36,7 +36,6 @@ module.exports = function() {
     "/testimonials",
     testimonialsControllerPost.testimonialsControllerPost
   );
-
   //post to stre for the search
   router.post("/search", searchController.searchController);
 
