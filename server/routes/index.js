@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const sequelize = require("sequelize");
 
 // models import
 const Items = require("../models/Items");
@@ -16,9 +15,7 @@ const indexController = require("../controllers/indexController");
 const storeController = require("../controllers/storeController");
 
 const itemDetailsController = require("../controllers/itemDetailsController");
-
-// operator for queries to sequelize
-const op = sequelize.Op;
+const searchController = require("../controllers/searchController");
 
 module.exports = function() {
   // homepage url
@@ -41,50 +38,7 @@ module.exports = function() {
   );
 
   //post to stre for the search
-  router.post("/search", (req, res) => {
-    // getting the datra frompost form store
-    let { text, fromPrize, toPrize } = req.body;
-
-    // GUARDING
-    text = text.toLowerCase() || "";
-    fromPrize = parseInt(fromPrize) || 0;
-    toPrize = parseInt(toPrize) || 1000000;
-
-    // check which kind to query
-    console.log(text, fromPrize, toPrize);
-
-    // Callee is the model definition. This allows you to easily map a query to a predefined model
-    Items.findAll({
-      where: {
-        prize: {
-          [op.gte]: fromPrize,
-          [op.lte]: toPrize
-        },
-        [op.or]: [
-          {
-            title: {
-              [op.like]: `%${text}%`
-            }
-          },
-          {
-            body: {
-              [op.like]: `%${text}%`
-            }
-          }
-        ]
-      }
-    }).then(result => {
-      // Each record will now be an instance of Project
-      res.render("store", {
-        pageTitle: "store",
-        items: result
-      });
-    });
-
-    //
-
-    //
-  });
+  router.post("/search", searchController.searchController);
 
   //        !!!       DEV  ROUTES     !!!       DEV  ROUTES
   // add records manually from dev view
