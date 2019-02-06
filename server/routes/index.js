@@ -23,54 +23,68 @@ const op = sequelize.Op;
 module.exports = function() {
   // homepage url
   router.get("/", indexController.indexController);
-
   // about us
   router.get("/about", aboutControllerExport.aboutController);
-
   // get the store
   router.get("/store", storeController.storeController);
-
-  //post to stre for the search
-  router.post("/search", (req, res) => {
-    // getting the datra frompost form store
-    const { text, fromPrize, toPrize } = req.body;
-
-    // check which kind to query
-    console.log(text, fromPrize, toPrize);
-
-    // split the search
-
-    Items.findAll({
-      limit: 3,
-      where: {
-        //       [op.gte]: parseInt(fromPrize),
-        //       [op.lte]: parseInt(toPrize)
-      },
-      order: [["createdAt", "DESC"]]
-    }).then(found => {
-      res.render("store", {
-        pageTitle: "store",
-        items: found
-      });
-    });
-  });
-
   // Details single item
   router.get("/itemDetails/:id", itemDetailsController.itemDetailsController);
-
-  // testimnonials GET
   // testimonials view
   router.get(
     "/testimonials",
     testimonialsControllerGet.testimonialsControllerGet
   );
-
-  // testimonials POST
-  // add testimonials
+  // testimonials POST - add testimonial
   router.post(
     "/testimonials",
     testimonialsControllerPost.testimonialsControllerPost
   );
+
+  //post to stre for the search
+  router.post("/search", (req, res) => {
+    // getting the datra frompost form store
+    let { text, fromPrize, toPrize } = req.body;
+
+    // GUARDING
+    text = text.toLowerCase() || "";
+    fromPrize = parseInt(fromPrize) || 0;
+    toPrize = parseInt(toPrize) || 1000000;
+
+    // check which kind to query
+    console.log(text, fromPrize, toPrize);
+
+    // Callee is the model definition. This allows you to easily map a query to a predefined model
+    Items.findAll({
+      where: {
+        prize: {
+          [op.gte]: fromPrize,
+          [op.lte]: toPrize
+        },
+        [op.or]: [
+          {
+            title: {
+              [op.like]: `%${text}%`
+            }
+          },
+          {
+            body: {
+              [op.like]: `%${text}%`
+            }
+          }
+        ]
+      }
+    }).then(result => {
+      // Each record will now be an instance of Project
+      res.render("store", {
+        pageTitle: "store",
+        items: result
+      });
+    });
+
+    //
+
+    //
+  });
 
   //        !!!       DEV  ROUTES     !!!       DEV  ROUTES
   // add records manually from dev view
