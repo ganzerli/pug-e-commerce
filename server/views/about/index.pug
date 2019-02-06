@@ -1,1 +1,19 @@
-h1.view-title About us
+extends ../layout/index
+
+block content 
+    h1.view-title=pageTitle
+
+    h2.subtitle Herer you can see all the particular characteristic of our shop in a very new design and technology
+
+    each tes in testimonials
+        h4=tes.name
+        p=tes.text
+
+    br
+    br
+    br
+    
+    each item in items
+        img.item-img(src=`./img/${item.img}`)
+        p=item.title
+        p=item.body

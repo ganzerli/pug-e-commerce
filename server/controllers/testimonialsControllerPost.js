@@ -15,7 +15,6 @@ exports.testimonialsControllerPost = (req, res) => {
   console.log(name, text);
   // creatin an array of promises
   const promises = [];
-
   // CREATE NEW TESTIMONIAL AND INSERT IN DB
   promises.push(
     Testimonials.create({
@@ -25,7 +24,6 @@ exports.testimonialsControllerPost = (req, res) => {
       createdAt: new Date().toLocaleString()
     })
   );
-
   // get 3 items to display at bottom page
   promises.push(
     Items.findAll({

@@ -8,6 +8,7 @@ html(lang="en")
         title #{pageTitle};
     body 
         include includes/header
+        // all the other views wil use this template and extend this block cpontent , or whatever block is needed
         block content
         include includes/footer
         script(src="/js/main.js")
