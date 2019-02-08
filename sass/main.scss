@@ -1,14 +1,15 @@
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import "abstracts/variables";
+@import "abstracts/mixins";
 
-.list-link-active .list-link-active:link,
-.list-link-active:visited {
-  color: red;
-  font-size: 1.5rem;
-  font-weight: bolder;
-}
+@import "base/base";
+@import "base/typography";
+@import "base/util";
+
+@import "layout/footer";
+@import "layout/header";
+@import "layout/nav";
+
+@import "pages/about";
+@import "pages/home";
+
+@import "components/slideshow";
