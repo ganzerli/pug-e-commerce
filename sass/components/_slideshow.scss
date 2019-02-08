@@ -1,8 +1,14 @@
 .slider {
   &-container {
-    display: flex;
+    display: inline-flex;
+    position: relative;
   }
   &-img {
-    display: block;
+    display: inline-block;
+    height: 100%;
+    width: 20%;
+  }
+  &-center {
+    transform: scale(1.3);
   }
 }

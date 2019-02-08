@@ -12,9 +12,13 @@
   font-weight: bolder; }
 
 .slider-container {
-  display: flex; }
+  display: inline-flex;
+  position: relative; }
 
 .slider-img {
-  display: block;
-  max-width: 20rem;
-  height: auto; }
+  display: inline-block;
+  height: 100%;
+  width: 20%; }
+
+.slider-center {
+  transform: scale(1.3); }
