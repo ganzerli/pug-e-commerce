@@ -1,19 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /*
-  const form = document.querySelector("[js-id=form-testimonials]");
-  if (form) {
-    form.addEventListener("submit", e => {
-      e.preventDefault();
-      // grab the inputs
-      const name = form.querySelector("input").value;
-      const text = form.querySelector("textarea").value;
+  const prev = document.querySelector("#slider-left");
+  const next = document.querySelector("#slider-right");
+  let center = 3;
 
-      console.log(e.target.getAttribute("js-id"));
-      console.log(name, text);
+  const elemenstsArr = document.querySelectorAll(".slider-img");
 
-      addTestimonial(name, text);
-    });
-  } */
+  if (prev && next) {
+    prev.addEventListener("click", slidePrev);
+    next.addEventListener("click", slideNext);
+    console.log(prev, next);
+  }
+  /////
+
+  function slidePrev(e) {
+    // add a prev img, get the 3 images, last go away, center get right and smaller, and the new one appears
+    console.log("prev");
+  }
+
+  function slideNext(e) {
+    //
+    console.log("next");
+    console.log(elemenstsArr);
+  }
 });
-
-function addTestimonial(name, text) {}

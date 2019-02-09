@@ -18,7 +18,5 @@
 .slider-img {
   display: inline-block;
   height: 100%;
-  width: 20%; }
-
-.slider-center {
-  transform: scale(1.3); }
+  width: 20%;
+  transform: transition 1s ease; }
