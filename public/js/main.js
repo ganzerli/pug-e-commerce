@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const prev = document.querySelector("#slider-left");
   const next = document.querySelector("#slider-right");
   const container = document.querySelector(".slider-container");
+
   let center = 3;
   const timeTr = 1000;
 
@@ -16,8 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "table-tennis-set.jpg"
   ];
 
-  const elemenstsArr = document.querySelectorAll(".slider-img");
-
   if (prev && next) {
     prev.addEventListener("click", slidePrev);
     next.addEventListener("click", slideNext);
@@ -26,14 +25,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function slidePrev() {
     // add a prev img, get the 3 images, last go away, center get right and smaller, and the new one appears
-    console.log(center);
-    /// movi tut, ngrosa l mez
+    const elemenstsArr = document.querySelectorAll(".slider-img");
     console.log(elemenstsArr);
-    const middle = container.clientWidth;
+    console.log(center);
+    console.log(elemenstsArr[center]);
+
+    /// movi tut, ngrosa l mez
     let offset =
-      (elemenstsArr[center + 1].clientWidth +
-        elemenstsArr[center].clientWidth) /
-      2;
+      (elemenstsArr[3 + 1].clientWidth + elemenstsArr[3].clientWidth) / 2;
+    console.log(elemenstsArr);
+    console.log(center);
 
     //move the images
     elemenstsArr.forEach((el, i) => {
@@ -42,27 +43,80 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     // transitionend.. reset elements and print
     center++;
+    if (center > imgref.length + 2) {
+      center = 3;
+    }
     // set timeout once when transition is finished
     //take all the nodes and change the src from center
     // with for in starting from center-2 give the new img from arr
+    setTimeout(() => {
+      elemenstsArr.forEach((x, index) => {
+        x.style.transform = "none";
+        x.style.transition = "none";
+        // now index is 4 ..
+        let mapping = center - 2;
+        if (mapping < 0) {
+          mapping = imgref.length - mapping;
+        } else if (mapping + index > imgref.length - 1) {
+          mapping -= imgref.length;
+        }
+        x.setAttribute("src", `./img/${imgref[mapping + index]}`);
+      });
+
+      //container.innerHTML = "";
+      // get the new id of the new picture center..
+    }, timeTr);
   }
 
   function slideNext() {
     //
-    console.log(center);
-    console.log(elemenstsArr);
+    // add a prev img, get the 3 images, last go away, center get right and smaller, and the new one appears
+    const elemenstsArr = document.querySelectorAll(".slider-img");
 
+    /// movi tut, ngrosa l mez
     let offset =
-      (elemenstsArr[center - 1].clientWidth +
-        elemenstsArr[center].clientWidth) /
-      2;
+      (elemenstsArr[3 - 1].clientWidth + elemenstsArr[3].clientWidth) / 2;
 
     //move the images
     elemenstsArr.forEach((el, i) => {
       el.style.transition = `transform ${timeTr}ms ease`;
       el.style.transform = `translateX(${offset}px)`;
     });
+    // transitionend.. reset elements and print
     center--;
-    console.log(center);
+    console.log("center : " + center);
+    if (center < 0) {
+      center = imgref.length - 1;
+      console.log("center : " + center);
+    }
+    // set timeout once when transition is finished
+    //take all the nodes and change the src from center
+    // with for in starting from center-2 give the new img from arr
+    setTimeout(() => {
+      elemenstsArr.forEach((x, index) => {
+        x.style.transform = "none";
+        x.style.transition = "none";
+        // now index is 4 ..
+        let mapping = center - 2;
+        if (mapping < 0) {
+          console.log("mapping is less then 0");
+
+          mapping = index - imgref.length;
+          console.log("new mapping :" + mapping);
+          //
+          //
+        } else if (mapping + index > imgref.length - 1) {
+          mapping -= imgref.length;
+          console.log("if  : " + mapping);
+        }
+
+        //
+        //
+        x.setAttribute("src", `./img/${imgref[mapping + index]}`);
+      });
+
+      //container.innerHTML = "";
+      // get the new id of the new picture center..
+    }, timeTr);
   }
 });
