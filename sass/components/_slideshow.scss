@@ -1,12 +1,20 @@
 .slider {
   &-container {
-    display: inline-flex;
+    margin: 0 auto;
+    display: block;
     position: relative;
+    max-width: 30rem;
+    overflow: hidden;
+  }
+  &-wrapper {
+    transform: translateX(-10rem);
+    display: inline-flex;
   }
   &-img {
     display: inline-block;
     height: 100%;
-    width: 20%;
+    max-width: 10rem;
+    width: 10rem;
     transition: transform 1s ease;
     padding: 1rem;
   }
