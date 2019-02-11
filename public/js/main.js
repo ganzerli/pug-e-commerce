@@ -98,10 +98,10 @@ document.addEventListener("DOMContentLoaded", () => {
         x.style.transition = "none";
         // now index is 4 ..
         let mapping = center - 2;
-        if (mapping < 0) {
+        if (mapping + index < 0) {
           console.log("mapping is less then 0");
 
-          mapping = index - imgref.length;
+          mapping += imgref.length;
           console.log("new mapping :" + mapping);
           //
           //
