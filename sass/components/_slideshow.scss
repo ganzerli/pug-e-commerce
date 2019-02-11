@@ -3,19 +3,25 @@
     margin: 0 auto;
     display: block;
     position: relative;
-    max-width: 30rem;
+    max-width: 45rem;
     overflow: hidden;
+    padding: 1rem 0;
   }
   &-wrapper {
-    transform: translateX(-10rem);
+    transform: translateX(-15rem);
     display: inline-flex;
+    align-items: center;
+    padding-top: 0.2rem;
   }
   &-img {
     display: inline-block;
     height: 100%;
-    max-width: 10rem;
-    width: 10rem;
+    max-width: 15rem;
+    width: 15rem;
     transition: transform 1s ease;
-    padding: 1rem;
+    padding: 1.5rem;
+    &-center {
+      z-index: 10;
+    }
   }
 }

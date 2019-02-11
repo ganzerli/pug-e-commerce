@@ -26,15 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function slidePrev() {
     // add a prev img, get the 3 images, last go away, center get right and smaller, and the new one appears
     const elemenstsArr = document.querySelectorAll(".slider-img");
-    console.log(elemenstsArr);
-    console.log(center);
-    console.log(elemenstsArr[center]);
 
-    /// movi tut, ngrosa l mez
     let offset =
       (elemenstsArr[3 + 1].clientWidth + elemenstsArr[3].clientWidth) / 2;
-    console.log(elemenstsArr);
-    console.log(center);
 
     //move the images
     elemenstsArr.forEach((el, i) => {
@@ -87,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // making the upcoming center bigger
       if (i === 1) {
         el.style.transform = `translateX(${offset}px) scale(1.4)`;
+
         console.log(el.style.transform);
       }
     });
