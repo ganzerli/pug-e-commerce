@@ -40,6 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
     elemenstsArr.forEach((el, i) => {
       el.style.transition = `transform ${timeTr}ms ease`;
       el.style.transform = `translateX(-${offset}px)`;
+      /// amking the center bigger
+      if (i === 3) {
+        el.style.transform = `translateX(-${offset}px) scale(1.4)`;
+        console.log(el.style.transform);
+      }
     });
     // transitionend.. reset elements and print
     center++;
@@ -51,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // with for in starting from center-2 give the new img from arr
     setTimeout(() => {
       elemenstsArr.forEach((x, index) => {
-        x.style.transform = "none";
+        x.style.transform = index != 2 ? "none" : "scale(1.4)";
         x.style.transition = "none";
         // now index is 4 ..
         let mapping = center - 2;
@@ -69,11 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function slideNext() {
-    //
     // add a prev img, get the 3 images, last go away, center get right and smaller, and the new one appears
     const elemenstsArr = document.querySelectorAll(".slider-img");
 
-    /// movi tut, ngrosa l mez
     let offset =
       (elemenstsArr[3 - 1].clientWidth + elemenstsArr[3].clientWidth) / 2;
 
@@ -81,6 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
     elemenstsArr.forEach((el, i) => {
       el.style.transition = `transform ${timeTr}ms ease`;
       el.style.transform = `translateX(${offset}px)`;
+      // making the upcoming center bigger
+      if (i === 1) {
+        el.style.transform = `translateX(${offset}px) scale(1.4)`;
+        console.log(el.style.transform);
+      }
     });
     // transitionend.. reset elements and print
     center--;
@@ -94,8 +102,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // with for in starting from center-2 give the new img from arr
     setTimeout(() => {
       elemenstsArr.forEach((x, index) => {
-        x.style.transform = "none";
+        x.style.transform = index != 2 ? "none" : "scale(1.4)";
         x.style.transition = "none";
+        // keep the center bigger
+
         // now index is 4 ..
         let mapping = center - 2;
         if (mapping + index < 0) {
@@ -109,7 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
           mapping -= imgref.length;
           console.log("if  : " + mapping);
         }
-
         //
         //
         x.setAttribute("src", `./img/${imgref[mapping + index]}`);
