@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  //
   const prev = document.querySelector("#slider-left");
   const next = document.querySelector("#slider-right");
   const container = document.querySelector(".slider-container");
@@ -129,5 +130,5 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(repeat, time, funct, time);
   };
 
-  repeat(slideNext, 3000);
+  repeat(slidePrev, 3000);
 });

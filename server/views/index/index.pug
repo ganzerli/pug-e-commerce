@@ -2,7 +2,17 @@ extends ../layout/index
 
 block content
    div.welcome-wrapper
-      h1.view-title #{pageTitle}
+      ul.welcome-wrapper-list
+         li.welcome-wrapper-list-item 
+            h2.welcome-wrapper-list-title abcd
+         li.welcome-wrapper-list-item 
+            h2.welcome-wrapper-list-title efgh
+         li.welcome-wrapper-list-item 
+            h2.welcome-wrapper-list-title ijkl
+         li.welcome-wrapper-list-item 
+            h2.welcome-wrapper-list-title mnop
+
+      //h1.view-title #{pageTitle}
 
       div.slider-container
          div.slider-wrapper
@@ -12,6 +22,6 @@ block content
             img.slider-img(src="./img/ratchet-kit.jpg" alt="slider-image" )
             img.slider-img(src="./img/rustic-table.jpg" alt="slider-image" )
 
-      span.slider-arrow.slider-arrow-prev(id="slider-left") <
-      span.slider-arrow.slider-arrow-next(id="slider-right") >
+         span.slider-arrow.slider-arrow-prev(id="slider-left") <
+         span.slider-arrow.slider-arrow-next(id="slider-right") >
    
