@@ -1,16 +1,17 @@
 extends ../layout/index  
 
 block content
-   h1.view-title #{pageTitle}
+   div.welcome-wrapper
+      h1.view-title #{pageTitle}
 
-   div.slider-container
-      div.slider-wrapper
-         img.slider-img(src="./img/ebike.jpg" alt="slider-image" )
-         img.slider-img(src="./img/guitar.jpg" alt="slider-image" )
-         img.slider-img.slider-img-center(src="./img/office-chair.jpg"  alt="slider-image" )
-         img.slider-img(src="./img/ratchet-kit.jpg" alt="slider-image" )
-         img.slider-img(src="./img/rustic-table.jpg" alt="slider-image" )
+      div.slider-container
+         div.slider-wrapper
+            img.slider-img(src="./img/ebike.jpg" alt="slider-image" )
+            img.slider-img(src="./img/guitar.jpg" alt="slider-image" )
+            img.slider-img.slider-img-center(src="./img/office-chair.jpg"  alt="slider-image" )
+            img.slider-img(src="./img/ratchet-kit.jpg" alt="slider-image" )
+            img.slider-img(src="./img/rustic-table.jpg" alt="slider-image" )
 
-   span.slider-arrow.slider-arrow-prev(id="slider-left") <
-   span.slider-arrow.slider-arrow-next(id="slider-right") >
+      span.slider-arrow.slider-arrow-prev(id="slider-left") <
+      span.slider-arrow.slider-arrow-next(id="slider-right") >
    

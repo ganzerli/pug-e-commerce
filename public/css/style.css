@@ -5,6 +5,9 @@
   padding: 0;
   box-sizing: border-box; }
 
+.header {
+  position: absolute; }
+
 .list-link-active .list-link-active:link,
 .list-link-active:visited {
   color: red;
@@ -31,6 +34,20 @@
   max-width: 15rem;
   width: 15rem;
   transition: transform 1s ease;
-  padding: 1.5rem; }
+  padding: 1rem 1.5rem; }
   .slider-img-center {
     z-index: 10; }
+
+.welcome-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  z-index: 1; }
+  .welcome-wrapper:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: black; }

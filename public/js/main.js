@@ -123,4 +123,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // get the new id of the new picture center..
     }, timeTr);
   }
+
+  const repeat = (funct, time) => {
+    funct();
+    setTimeout(repeat, time, funct, time);
+  };
+
+  repeat(slideNext, 3000);
 });
