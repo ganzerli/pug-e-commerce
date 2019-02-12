@@ -8,8 +8,8 @@
   &::after {
     // if a layer needed on front
     content: "";
-    width: 100%;
-    height: 100%;
+    width: 0%;
+    height: 0%;
     z-index: 1;
     background: rgba(0, 0, 0, 0.2);
     position: absolute;
@@ -21,16 +21,28 @@
     top: 0;
     left: 0;
     z-index: -1;
+    &-title {
+      font-size: 3rem;
+      position: absolute;
+      top: 10%;
+      left: 10%;
+    }
     &-item {
       position: absolute;
       top: 0;
       left: 0;
+      width: 100vw;
+      height: 100vw;
     }
-    &-title {
-      font-size: 3rem;
-      position: absolute;
-      top: 0;
-      left: 0;
+    // setup images
+    &-item:nth-child(1) {
+      color: red;
+      background-image: linear-gradient(
+          205deg,
+          rgba(150, 255, 161, 0.1),
+          rgba(150, 255, 161, 0.1)
+        ),
+        url("../img/ebike.jpg");
     }
   }
 }

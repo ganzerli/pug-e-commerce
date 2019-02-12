@@ -1,7 +1,19 @@
+// set a font easy to manage as base to html, to have it easy to get as rem and translate in the media queries
+html {
+  font-size: 62.5%; // defined 1rem as 10px; 10px/16px = 62.5%
+  // like that 1 rem is 10 px
+  // IN THE MIXIN IS DEFINED WHICH MEDIA QUERY TO LOOK TO APPLY THIS CONTENT
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+}
+
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
