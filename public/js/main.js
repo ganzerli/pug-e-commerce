@@ -82,8 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // making the upcoming center bigger
       if (i === 1) {
         el.style.transform = `translateX(${offset}px) scale(1.4)`;
-
-        console.log(el.style.transform);
       }
     });
     // transitionend.. reset elements and print
@@ -101,14 +99,11 @@ document.addEventListener("DOMContentLoaded", () => {
         x.style.transform = index != 2 ? "none" : "scale(1.4)";
         x.style.transition = "none";
         // keep the center bigger
-
         // now index is 4 ..
         let mapping = center - 2;
         if (mapping + index < 0) {
-          console.log("mapping is less then 0");
-
+          //
           mapping += imgref.length;
-          console.log("new mapping :" + mapping);
           //
           //
         } else if (mapping + index > imgref.length - 1) {
