@@ -21,6 +21,8 @@
     top: 0;
     left: 0;
     z-index: -1;
+    max-height: 100vh;
+    // overflow: hidden;
     &-title {
       font-size: 3rem;
       position: absolute;
@@ -33,10 +35,12 @@
     }
     &-item {
       position: absolute;
+      overflow: hidden;
       top: 0;
       left: 0;
       width: 100vw;
-      height: 100vw;
+      max-height: 100vh;
+      height: 100vh;
       opacity: 0;
       // animations cross browser
       -webkit-animation: fading-img 36s linear infinite 0s;
