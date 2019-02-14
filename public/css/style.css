@@ -118,7 +118,7 @@ body {
       -ms-animation: fading-img 36s linear infinite 0s;
       animation: fading-img 36s linear infinite 0s; }
     .welcome-wrapper-list-item:nth-child(1) {
-      background-image: url(../img/tble-tennis-set.jpg); }
+      background-image: url(../img/table-tennis-set.jpg); }
     .welcome-wrapper-list-item:nth-child(2) {
       background-image: url(../img/guitar.jpg);
       -webkit-animation-delay: 6s;
