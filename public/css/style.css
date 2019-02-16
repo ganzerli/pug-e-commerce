@@ -190,3 +190,30 @@ body {
       -o-animation-delay: 30s;
       -ms-animation-delay: 30s;
       animation-delay: 30s; }
+
+.item-wrapper {
+  display: flex; }
+
+.item-container {
+  position: relative;
+  display: inline-block;
+  padding: 2rem;
+  margin: 2rem;
+  width: 25%; }
+
+.item-img {
+  max-width: 100%;
+  display: block;
+  height: auto; }
+
+.testimonials-wrapper {
+  display: flex;
+  flex-wrap: wrap; }
+
+.testimonials-container {
+  display: inline-block;
+  min-width: 20rem;
+  padding: 2rem;
+  margin: 2rem;
+  width: 25%;
+  text-align: center; }

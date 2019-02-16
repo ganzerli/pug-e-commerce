@@ -23,12 +23,18 @@ block content
             input.btn-form-submit(type="submit")
 
     if(testimonials)
-        each record in testimonials
-            p=record.name
-            p=record.text
+        div.testimonials-wrapper
+            each record in testimonials
+                div.testimonials-container
+                    p=record.name
+                    p=record.text
 
     if(items)
+        div.item-wrapper
         each item in items
-            img.img-item(src=`img/${item.img}`) 
-            p the itm title is #{item.title}
-            p=item.body
+            div.item-container
+                img.item-img(src=`img/${item.img}`) 
+                p.item-title the item title is #{item.title}
+                p.item-body=item.body
+
+    h3 space for the grid - hover - special item
