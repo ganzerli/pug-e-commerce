@@ -25,20 +25,22 @@ block content
         .form-group
             input.btn-form-submit(type="submit")
 
-    if(testimonials)
-        div.testimonials-wrapper
-            each record in testimonials
-                div.testimonials-container
-                    p=record.name
-                    p=record.text
 
-    if(items)
-        div.item-wrapper
-        each item in items
-            div.item-container
-                img.item-img(src=`img/${item.img}`) 
-                p.item-title the item title is #{item.title}
-                p.item-body=item.body
-                span.item-prize € #{item.prize}
+    .container.align-center    
+        if(testimonials)
+            .testimonials-wrapper
+                each record in testimonials
+                    div.testimonials-container
+                        p=record.name
+                        p=record.text
 
-    h3 space for the grid - hover - special item
+        if(items)
+            .item-wrapper
+                each item in items
+                    .item-container
+                        img.item-img(src=`img/${item.img}`) 
+                        p.item-title the item title is #{item.title}
+                        p.item-body=item.body
+                        span.item-prize € #{item.prize}
+                
+        h3 space for the grid - hover - special item

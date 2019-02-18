@@ -8,21 +8,21 @@ block content
     h1.view-title=pageTitle
     h2.subtitle Herer you can see all the particular characteristic of our shop in a very new design and technology
 
-    if(testimonials)
-        div.testimonials-wrapper
-            each record in testimonials
-                div.testimonials-container
-                    p=record.name
-                    p=record.text
+    .container.align-center
+        if(testimonials)
+            .testimonials-wrapper
+                each record in testimonials
+                    div.testimonials-container
+                        p=record.name
+                        p=record.text
 
-    br
-    br
-    
-    if(items)
-        .item-wrapper
-        each item in items
-            .item-container
-                img.item-img(src=`img/${item.img}`) 
-                p.item-title the item title is #{item.title}
-                p.item-body=item.body
-                span.item-prize € #{item.prize}
+        if(items)
+            .item-wrapper
+                each item in items
+                    div.item-container
+                        img.item-img(src=`img/${item.img}`) 
+                        p.item-title the item title is #{item.title}
+                        p.item-body=item.body
+                        span.item-prize € #{item.prize}
+                
+        h3 space for the grid - hover - special item

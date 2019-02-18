@@ -1,12 +1,12 @@
 .item {
   &-wrapper {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
   &-container {
     position: relative;
     display: inline-block;
-    padding: 2rem;
-    margin: 2rem;
     width: 25%;
   }
   &-img {
