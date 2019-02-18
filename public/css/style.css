@@ -217,3 +217,18 @@ body {
   margin: 2rem;
   width: 25%;
   text-align: center; }
+
+.store-results-container {
+  position: relative;
+  display: flex;
+  justify-content: space-around; }
+
+.store-item-container {
+  max-width: 20rem;
+  padding: 2rem; }
+
+.store-item-img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: block; }

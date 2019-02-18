@@ -19,15 +19,19 @@ block content
         .form.group
             input.btn-form-submit(type="submit")
 
-    .results-container
+
+
+    
+    .store-results-container
         each item in items
-            .result-file
-                img(src=`./img/${item.img}`)
-                p=item.img
-                h4=item.title
-                p=item.body
-                span=item.selected
-                span=item.prize
-                p=item.updatedAt
-                p=item.id
+            .store-item-container
+                img.store-item-img(src=`./img/${item.img}`)
+                h4.store-item-title=item.title
+                p.store-item-body=item.body
+                span.store-item-special=item.special
+                span &nbsp;
+                span.store-item-prize=item.prize
+                p.store-item-date=item.updatedAt
+
+                // class definition
                 a.btn-goto-item(href=`/itemDetails/${item.id}`) Details

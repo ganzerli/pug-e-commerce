@@ -13,12 +13,15 @@ block content
         p=errors.text
 
     form.form(js-id="form-testimonials", action="/testimonials", method="post")
+
         .form-group
             label.form-input-label(for="name") Full Name
             input.form-input-name(type="text", id="name" name="name")
+
         .form-group
             label(for="textarea-testimonials" calss="form-input-label") Your opinion 
             textarea.form-textarea(id="textarea-testimonials" name="text") 
+
         .form-group
             input.btn-form-submit(type="submit")
 
@@ -36,5 +39,6 @@ block content
                 img.item-img(src=`img/${item.img}`) 
                 p.item-title the item title is #{item.title}
                 p.item-body=item.body
+                span.item-prize € #{item.prize}
 
     h3 space for the grid - hover - special item

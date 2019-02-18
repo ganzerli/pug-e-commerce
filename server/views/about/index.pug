@@ -1,20 +1,28 @@
 extends ../layout/index
 
 block content 
+
     div.header-default-space
     img.logo-img(src="./img/pen-man-logo.svg" width="50px" height="50px")
+
     h1.view-title=pageTitle
     h2.subtitle Herer you can see all the particular characteristic of our shop in a very new design and technology
 
-    each tes in testimonials
-        h4=tes.name
-        p=tes.text
-        
-    br
+    if(testimonials)
+        div.testimonials-wrapper
+            each record in testimonials
+                div.testimonials-container
+                    p=record.name
+                    p=record.text
+
     br
     br
     
-    each item in items
-        img.item-img(src=`./img/${item.img}`)
-        p=item.title
-        p=item.body
+    if(items)
+        .item-wrapper
+        each item in items
+            .item-container
+                img.item-img(src=`img/${item.img}`) 
+                p.item-title the item title is #{item.title}
+                p.item-body=item.body
+                span.item-prize € #{item.prize}
