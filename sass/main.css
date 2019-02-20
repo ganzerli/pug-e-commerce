@@ -404,18 +404,18 @@ body {
 }
 
 .grid-item--7 {
-  -ms-grid-row: 4;
+  -ms-grid-row: 5;
   -ms-grid-row-span: 1;
-  grid-row: 4/5;
+  grid-row: 5/6;
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
   grid-column: 1/2;
 }
 
 .grid-item--8 {
-  -ms-grid-row: 4;
+  -ms-grid-row: 5;
   -ms-grid-row-span: 1;
-  grid-row: 4/5;
+  grid-row: 5/6;
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-column: 2/3;
