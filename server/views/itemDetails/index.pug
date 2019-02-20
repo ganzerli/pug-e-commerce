@@ -1,8 +1,10 @@
 
-div.header-default-space
-img.logo-img(src="./img/pen-man-logo.svg" width="50px" height="50px")
-h1.view-title Details
-p try to get variables from the route
+extends ../layout/index
 
-h1=item.title
-img(src=`/img/${item.img}`)
+block content
+    div.header-default-space
+    img.logo-img(src="/img/pen-man-logo.svg" width="50px" height="50px")
+    h1.view-title Details
+    p try to get variables from the route
+    h1=item.title
+    img(src=`/img/${item.img}`)

@@ -1,0 +1,40 @@
+.grid {
+  &-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &-item {
+    position: relative;
+
+    &--1 {
+      color: red;
+    }
+    &--2 {
+      color: red;
+    }
+    &--3 {
+      color: red;
+    }
+    &--4 {
+      color: red;
+    }
+    &--5 {
+      color: red;
+    }
+    &--6 {
+      color: red;
+    }
+    &--7 {
+      color: red;
+    }
+    &--8 {
+      color: red;
+    }
+  }
+
+  &-img {
+    max-width: 20rem;
+  }
+}

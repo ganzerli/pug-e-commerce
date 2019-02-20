@@ -1,6 +1,6 @@
 extends ../layout/index
 
-block content 
+block content
 
     div.header-default-space
     img.logo-img(src="./img/pen-man-logo.svg" width="50px" height="50px")
@@ -24,5 +24,46 @@ block content
                         p.item-title the item title is #{item.title}
                         p.item-body=item.body
                         span.item-prize € #{item.prize}
-                
+
         h3 space for the grid - hover - special item
+
+    .grid-container
+        .grid-item.grid-item--1
+            figure.grid-figure
+            img.grid-img(src="./img/car-reproduction.png")
+            figcaption.grid-figcaption this is the caption for the figure
+
+        .grid-item.grid-item--2
+            figure.grid-figure
+            img.grid-img(src="./img/camp-fridge.jpg")
+            figcaption.grid-figcaption this is the caption for the figure
+
+        .grid-item.grid-item--3
+            figure.grid-figure
+            img.grid-img(src="./img/rustic-cupboard.jpg")
+            figcaption.grid-figcaption this is the caption for the figure
+
+        .grid-item.grid-item--4
+            figure.grid-figure
+            img.grid-img(src="./img/pocket-clock.jpg")
+            figcaption.grid-figcaption this is the caption for the figure
+        
+        .grid-item.grid-item--5
+            figure.grid-figure
+            img.grid-img(src="./img/sand-timer.jpg")
+            figcaption.grid-figcaption this is the caption for the figure
+        
+        .grid-item.grid-item--6
+            figure.grid-figure
+            img.grid-img(src="./img/table-tennis-hit.jpg")
+            figcaption.grid-figcaption this is the caption for the figure
+        
+        .grid-item.grid-item--7
+            figure.grid-figure
+            img.grid-img(src="./img/stove.jpg")
+            figcaption.grid-figcaption this is the caption for the figure
+        
+        .grid-item.grid-item--8
+            figure.grid-figure
+            img.grid-img(src="./img/bottles.jpg")
+            figcaption.grid-figcaption this is the caption for the figure

@@ -2,11 +2,12 @@ extends ../layout/index
 
 block content
     div.header-default-space
-    img.logo-img(src="./img/pen-man-logo.svg" width="50px" height="50px")
+    img.logo-img(src="/img/pen-man-logo.svg" width="50px" height="50px")
     h1.view-title #{pageTitle}
     h3 here you can find all articles
 
     form.form(js-id="form-search", action="/search", method="post")
+    
         .form-group
             label.form-input-label(for="text") title or description
             input.form-input-name(type="text", id="text", name="text")
