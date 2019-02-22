@@ -3,20 +3,54 @@
     margin: 10rem auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    @include something;
   }
+
   &-figure {
     max-width: 20rem;
     position: relative;
     display: block;
     margin: 0 auto;
-    background: black;
+    overflow: hidden;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      transition: all 0.4s;
+    }
+
+    &:hover {
+      .display-hover-text {
+        transform: translateY(-2rem);
+      }
+      .display-hover-img {
+        transform: rotate(4deg) scale(1.05);
+      }
+      &::after {
+        background: rgba(0, 0, 0, 0.1);
+      }
+    }
   }
+
   &-img {
     width: 100%;
+    transition: all 0.4s;
   }
+
   &-text {
     position: absolute;
-    bottom: 2rem;
+    bottom: 0;
+    left: 0;
+    transition: all 0.5s;
+  }
+
+  &-text2 {
+    position: absolute;
+    bottom: 1rem;
     left: 0;
   }
 }
