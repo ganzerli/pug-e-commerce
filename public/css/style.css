@@ -283,11 +283,12 @@ body {
 .display-hover-container {
   margin: 10rem auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  color: red; }
+  grid-template-columns: repeat(4, 1fr); }
 
 .display-hover-figure {
   max-width: 20rem;
+  width: 20rem;
+  height: 20rem;
   position: relative;
   display: block;
   margin: 0 auto;
@@ -302,6 +303,8 @@ body {
     background: rgba(0, 0, 0, 0.2);
     transition: all 0.4s; }
   .display-hover-figure:hover .display-hover-text {
+    transform: translateX(6rem); }
+  .display-hover-figure:hover .display-hover-text2 {
     transform: translateY(-2rem); }
   .display-hover-figure:hover .display-hover-img {
     transform: rotate(4deg) scale(1.05); }
@@ -310,15 +313,24 @@ body {
 
 .display-hover-img {
   width: 100%;
-  transition: all 0.4s; }
+  transition: all 0.4s;
+  position: absolute;
+  display: block;
+  width: auto;
+  height: 100%; }
 
 .display-hover-text {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  transition: all 0.5s; }
+  bottom: 1rem;
+  left: -4rem;
+  transition: all 0.3s ease 0.1s; }
 
 .display-hover-text2 {
   position: absolute;
-  bottom: 1rem;
-  left: 0; }
+  bottom: 0;
+  right: 0;
+  transition: all 0.2s ease-in; }
+
+.btn-add-cart {
+  color: red;
+  z-index: 4; }

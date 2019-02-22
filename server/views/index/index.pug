@@ -30,22 +30,10 @@ block content
          span.slider-arrow.slider-arrow-next(id="slider-right") >
 
    .display-hover-container
-      figure.display-hover-figure
-         img.display-hover-img(src="./img/vase-inside.jpg" alt="pictures of elements to buy with information")
-         figcaption.display-hover-text text appearing or something on hover
-         figcaption.display-hover-text2 something for text 2
-         
-      figure.display-hover-figure
-         img.display-hover-img(src="./img/camp-fridge.jpg" alt="pictures of elements to buy with information")
-         figcaption.display-hover-text text appearing or something on hover
-         figcaption.display-hover-text2 something for text 2
-         
-      figure.display-hover-figure
-         img.display-hover-img(src="./img/vase-inside.jpg" alt="pictures of elements to buy with information")
-         figcaption.display-hover-text text appearing or something on hover
-         figcaption.display-hover-text2 something for text 2
-         
-      figure.display-hover-figure
-         img.display-hover-img(src="./img/camp-fridge.jpg" alt="pictures of elements to buy with information")
-         figcaption.display-hover-text text appearing or something on hover
-         figcaption.display-hover-text2 something for text 2
+      each item in items  
+         figure.display-hover-figure
+            button.btn-add-cart(onclick="something()") somethid
+            img.display-hover-img(src=`./img/${item.img}` alt="pictures of elements to buy with information")
+            figcaption.display-hover-text=item.title 
+            figcaption.display-hover-text2=item.prize
+            button.btn-add-cart(onclick="something()") somethid

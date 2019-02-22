@@ -1,0 +1,8 @@
+//set text color
+@function set-color($color) {
+  @if (lightness($color) >40) {
+    @return #445;
+  } @else {
+    @return #bba;
+  } // so one can cahnge the primarycolor and the text become readable
+}

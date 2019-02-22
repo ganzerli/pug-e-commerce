@@ -135,4 +135,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //
   }
+  //
+  //
 });
+
+function something() {
+  console.log("click");
+}

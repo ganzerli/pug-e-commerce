@@ -1,3 +1,10 @@
 @mixin something() {
   color: red;
 }
+
+@mixin resize-img() {
+  position: absolute;
+  display: block;
+  width: auto;
+  height: 100%;
+}

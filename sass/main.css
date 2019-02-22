@@ -431,11 +431,12 @@ body {
   display: grid;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
-  color: red;
 }
 
 .display-hover-figure {
   max-width: 20rem;
+  width: 20rem;
+  height: 20rem;
   position: relative;
   display: block;
   margin: 0 auto;
@@ -455,6 +456,11 @@ body {
 }
 
 .display-hover-figure:hover .display-hover-text {
+  -webkit-transform: translateX(6rem);
+          transform: translateX(6rem);
+}
+
+.display-hover-figure:hover .display-hover-text2 {
   -webkit-transform: translateY(-2rem);
           transform: translateY(-2rem);
 }
@@ -472,19 +478,30 @@ body {
   width: 100%;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
+  position: absolute;
+  display: block;
+  width: auto;
+  height: 100%;
 }
 
 .display-hover-text {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  bottom: 1rem;
+  left: -4rem;
+  -webkit-transition: all 0.3s ease 0.1s;
+  transition: all 0.3s ease 0.1s;
 }
 
 .display-hover-text2 {
   position: absolute;
-  bottom: 1rem;
-  left: 0;
+  bottom: 0;
+  right: 0;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.btn-add-cart {
+  color: red;
+  z-index: 4;
 }
 /*# sourceMappingURL=main.css.map */
