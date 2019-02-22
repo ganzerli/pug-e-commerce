@@ -424,4 +424,30 @@ body {
 .grid-img {
   max-width: 20rem;
 }
+
+.display-hover-container {
+  margin: 10rem auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+}
+
+.display-hover-figure {
+  max-width: 20rem;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  background: black;
+}
+
+.display-hover-img {
+  width: 100%;
+}
+
+.display-hover-text {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+}
 /*# sourceMappingURL=main.css.map */

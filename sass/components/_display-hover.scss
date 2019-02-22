@@ -1,0 +1,22 @@
+.display-hover {
+  &-container {
+    margin: 10rem auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  &-figure {
+    max-width: 20rem;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    background: black;
+  }
+  &-img {
+    width: 100%;
+  }
+  &-text {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+  }
+}
