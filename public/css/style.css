@@ -280,6 +280,11 @@ body {
 .grid-img {
   max-width: 20rem; }
 
+[js-attr="img-lens"] {
+  width: 100px;
+  height: 100px;
+  background: black; }
+
 .display-hover-container {
   margin: 10rem auto;
   display: grid;
