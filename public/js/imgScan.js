@@ -3,7 +3,7 @@ const lens = document.querySelector("[js-attr=img-lens]");
 
 console.log(lens);
 
-if (img && lens) {
+if (img) {
   console.log(img);
 
   const coordinates = {
@@ -23,7 +23,10 @@ if (img && lens) {
     const mapY = e.clientY - coordinates.top;
     //
     lens.style.backgroundImage = `url(${e.target.getAttribute("src")})`;
+    //
 
+    //mapping the background position
+    //
     //
     console.log(mapX, mapY);
     //
