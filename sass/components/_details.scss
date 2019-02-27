@@ -1,8 +1,16 @@
 .details {
+  // display: inline-block;
+  border: 1px black solid;
+  &-mouse-square {
+    position: absolute;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    width: $square-lens-width;
+    height: $square-lens-height;
+  }
 }
 
 [js-attr="img-lens"] {
-  width: 100px;
-  height: 100px;
+  width: $square-lens-width;
+  height: $square-lens-height;
   background: black;
 }

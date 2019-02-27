@@ -280,6 +280,14 @@ body {
 .grid-img {
   max-width: 20rem; }
 
+.details {
+  border: 1px black solid; }
+  .details-mouse-square {
+    position: absolute;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    width: 100px;
+    height: 100px; }
+
 [js-attr="img-lens"] {
   width: 100px;
   height: 100px;
