@@ -14,10 +14,13 @@ const Items = db.define("items", {
   selected: {
     type: sequelize.BOOLEAN
   },
-  prize: {
+  price: {
     type: sequelize["DOUBLE PRECISION"]
   },
   img: {
+    type: sequelize.STRING
+  },
+  img_bg: {
     type: sequelize.STRING
   },
   createdAt: {

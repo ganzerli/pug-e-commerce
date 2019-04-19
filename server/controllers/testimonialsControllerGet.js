@@ -24,13 +24,13 @@ exports.testimonialsControllerGet = (req, res) => {
   // joining the promises
   const result = Promise.all(promises);
 
-  //
+  // RENDERING THE PAGE
   result.then(results => {
     res.render("testimonials", {
       // created at "ASC" does not work
       testimonials: results[0],
       pageTitle: "Testimonials",
-      items: results[1]
+      items: reuslts[1]
     });
   });
   //

@@ -5,7 +5,7 @@ const router = express.Router();
 const Items = require("../models/Items");
 const Testimonials = require("../models/Testimonials");
 
-//import the controllers
+//IMPORT CONTROLLERS
 const aboutControllerExport = require("../controllers/aboutController");
 
 const testimonialsControllerPost = require("../controllers/testimonialsControllerPost");
@@ -49,8 +49,8 @@ module.exports = function() {
 
   // post from dev view
   router.post("/add", (req, res) => {
-    const { title, body, special, prize, img } = req.body;
-    console.log(title, body, special, prize, img);
+    const { title, body, special, prize, img, img_bg } = req.body;
+    console.log(title, body, special, prize, img, img_bg);
 
     Items.create({
       title,
@@ -60,7 +60,8 @@ module.exports = function() {
       createdAt: new Date().toLocaleString(),
       selected: false,
       prize,
-      img
+      img,
+      img_bg
     }).then(data => {
       res.render("dev/addItem", {
         pageTitle: "addItem",
