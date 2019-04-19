@@ -49,13 +49,12 @@
       -ms-animation: fading-img 36s linear infinite 0s;
       animation: fading-img 36s linear infinite 0s;
     }
+
+    
     // setup images
 
-    //
-    ///
-    /////
     &-item:nth-child(1) {
-      background-image: url(../img/table-tennis-set.jpg);
+      background-image: url(../img/bitbox_big.jpg);
     }
     &-item:nth-child(2) {
       background-image: url(../img/guitar.jpg);
@@ -90,7 +89,7 @@
       animation-delay: 24s;
     }
     &-item:nth-child(6) {
-      background-image: url(../img/rustic-cupboard.jpg);
+      background-image: url(../img/boshbox_big.jpg);
       -webkit-animation-delay: 30s;
       -moz-animation-delay: 30s;
       -o-animation-delay: 30s;

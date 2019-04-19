@@ -20,7 +20,7 @@ const Items = db.define("items", {
   img: {
     type: sequelize.STRING
   },
-  img_bg: {
+  img_big: {
     type: sequelize.STRING
   },
   createdAt: {

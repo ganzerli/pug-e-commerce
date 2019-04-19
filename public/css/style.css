@@ -136,7 +136,7 @@ body {
       -ms-animation: fading-img 36s linear infinite 0s;
       animation: fading-img 36s linear infinite 0s; }
     .welcome-wrapper-list-item:nth-child(1) {
-      background-image: url(../img/table-tennis-set.jpg); }
+      background-image: url(../img/bitbox_big.jpg); }
     .welcome-wrapper-list-item:nth-child(2) {
       background-image: url(../img/guitar.jpg);
       -webkit-animation-delay: 6s;
@@ -166,7 +166,7 @@ body {
       -ms-animation-delay: 24s;
       animation-delay: 24s; }
     .welcome-wrapper-list-item:nth-child(6) {
-      background-image: url(../img/rustic-cupboard.jpg);
+      background-image: url(../img/boshbox_big.jpg);
       -webkit-animation-delay: 30s;
       -moz-animation-delay: 30s;
       -o-animation-delay: 30s;

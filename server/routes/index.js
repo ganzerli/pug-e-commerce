@@ -49,7 +49,7 @@ module.exports = function() {
 
   // post from dev view
   router.post("/add", (req, res) => {
-    const { title, body, special, prize, img, img_bg } = req.body;
+    const { title, body, special, prize, img, img_big } = req.body;
     console.log(title, body, special, prize, img, img_bg);
 
     Items.create({
@@ -61,7 +61,7 @@ module.exports = function() {
       selected: false,
       prize,
       img,
-      img_bg
+      img_big
     }).then(data => {
       res.render("dev/addItem", {
         pageTitle: "addItem",

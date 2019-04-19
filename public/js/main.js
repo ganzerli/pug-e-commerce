@@ -14,14 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const timeTr = 1000;
 
     const imgref = [
-      "bike-lock.jpg",
+      "luggage_sm.PNG",
       "ebike.jpg",
       "guitar.jpg",
       "office-chair.jpg",
       "ratchet-kit.jpg",
       "rustic-table.jpg",
-      "table-tennis-hit.jpg",
-      "table-tennis-set.jpg"
+      "couchtable_sm.PNG",
+      "boshbox_sm.PNG"
     ];
 
     if (prev && next) {
@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // add a prev img, get the 3 images, last go away, center get right and smaller, and the new one appears
       const elemenstsArr = document.querySelectorAll(".slider-img");
 
+      // center images with different sizes
       let offset =
         (elemenstsArr[3 - 1].clientWidth + elemenstsArr[3].clientWidth) / 2;
 
